@@ -20,6 +20,3 @@ sed -i 's/^#\(.*helloworld\)/\1/' feeds.conf.default
 git clone https://github.com/vernesong/OpenClash.git package-temp
 mv -f package-temp/luci-app-openclash package/lean/
 rm -rf package-temp
-
-# Change default ip
-sed -i 's/192.168.1.1/192.168.21.130/g' package/base-files/files/bin/config_generate
