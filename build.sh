@@ -29,4 +29,4 @@ rm -f DockerImg-OpenwrtArm64-${TAG}.gz
 #rm -rf "$TMPDIR" && \
 #docker save ${IMG_NAME}:${TAG} | pigz -9 > $OUTDIR/docker-img-openwrt-aarch64-${TAG}.gz
 #docker push ${IMG_NAME}:${TAG}  && \
-docker push ${IMG_NAME}:latest
+#docker push ${IMG_NAME}:latest
