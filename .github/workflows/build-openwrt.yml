@@ -154,14 +154,15 @@ jobs:
 
     - name: Image - build docker image
       run: |
-        sudo bash build.sh
+        echo "BUILD_TAG=$(date +"%y%m%d")" >> $GITHUB_ENV
+        sudo bash build.sh ${{ env.BUILD_TAG }}
         
     - name: Build and push
       id: docker_build
       uses: docker/build-push-action@v2
       with:
         push: true
-        tags: liyouleo911/openwrt-aarch64:latest
+        tags: liyouleo911/openwrt-aarch64:${{ env.BUILD_TAG }},liyouleo911/openwrt-aarch64:latest
 
     - name: Upload firmware to cowtransfer
       id: cowtransfer
