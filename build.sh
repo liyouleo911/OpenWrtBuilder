@@ -20,13 +20,4 @@ cat patches/luci-admin-status-index-html.patch | (cd "$TMPDIR/usr/lib/lua/luci/v
 sed -e "s/net.nf_conntrack_max net.ipv4.netfilter.ip_conntrack_max/net.netfilter.nf_conntrack_max net.nf_conntrack_max net.ipv4.netfilter.ip_conntrack_max \| head -n 1/" -i "$TMPDIR/usr/lib/lua/luci/view/admin_status/index.htm" && \
 rm -f "$TMPDIR/etc/bench.log" && \
 echo "17 3 * * * /etc/coremark.sh" >> "$TMPDIR/etc/crontabs/root" && \
-(cd "$TMPDIR" && tar cf ../openwrt-armvirt-64-default-rootfs-patched.tar .) && \
-#rm -f DockerImg-OpenwrtArm64-${TAG}.gz
-rm -f DockerImg-OpenwrtArm64-${TAG}.gz && \
-docker buildx build --push --platform linux/arm64/v8 --tag ${IMG_NAME}:${TAG} --tag ${IMG_NAME}:latest . && \
-rm -f  openwrt-armvirt-64-default-rootfs-patched.tar && \
-rm -rf "$TMPDIR"
-#rm -rf "$TMPDIR" && \
-#docker save ${IMG_NAME}:${TAG} | pigz -9 > $OUTDIR/docker-img-openwrt-aarch64-${TAG}.gz
-#docker push ${IMG_NAME}:${TAG}  && \
-#docker push ${IMG_NAME}:latest
+(cd "$TMPDIR" && tar cf ../openwrt-armvirt-64-default-rootfs-patched.tar .)
