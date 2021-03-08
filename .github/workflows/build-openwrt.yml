@@ -149,7 +149,7 @@ jobs:
     - name: Image - build&push docker image
       run: |
         cd n1
-        sudo bash build.sh $(date +%m%d)
+        sudo bash build.sh $(date +%y%m%d)
 
     - name: Upload firmware to cowtransfer
       id: cowtransfer
