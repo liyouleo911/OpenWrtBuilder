@@ -151,8 +151,8 @@ jobs:
 
     - name: Image - Apply patches
       run: |
-        sudo bash build.sh $(date +"%y%m%d")
-        echo "BUILD_TAG=$(date +"%y%m%d")" >> $GITHUB_ENV
+        sudo bash build.sh
+        echo "BUILD_TAG=$(date +"%y.%m.%d")" >> $GITHUB_ENV
         
     - name: Image - Build and Push
       run: |
